@@ -1,31 +1,9 @@
-# backtester_streamlit_improved.py
-# Improved Backtester for Streamlit — expanded warmup + defaults + summary additions
-# להרצה: pip install streamlit yfinance pandas numpy matplotlib
-# ואז: streamlit run backtester_streamlit_improved.py
-
+# backtester_streamlit_improved.py - הכל נקי!
 # ----------------------------------------------------
-# פתרון לשגיאת ModuleNotFoundError ב-Streamlit Cloud
+# ודא שהקובץ לא מכיל קוד התקנה אוטומטי כמו sys, subprocess, importlib
 # ----------------------------------------------------
-import sys
-import subprocess
-import importlib
 
-required = ["streamlit", "yfinance", "pandas", "numpy", "matplotlib"]
 
-# בדוק והתקן חבילות חסרות אם הקוד רץ בסביבה שלא סיימה את ההתקנה
-try:
-    for package in required:
-        importlib.import_module(package)
-except ImportError:
-    # מצאנו חבילה חסרה: ננסה להתקין ונסיים את הריצה הנוכחית.
-    # זה מונע את הכשל בשורת ה-import yfinance.
-    # בהרצה הבאה, Streamlit Cloud יריץ שוב וימצא את החבילות.
-    try:
-        subprocess.check_call([sys.executable, "-m", "pip", "install", *required])
-        st.experimental_rerun() # מבקש מ-Streamlit לרוץ מחדש אחרי ההתקנה
-    except Exception as e:
-        # זה אמור לקרות רק אם יש בעיה חמורה בהרשאות
-        sys.exit(f"Failed to install required packages: {e}")
 
 # ----------------------------------------------------
 # ייבוא המודולים הרגיל (כעת זה אמור לעבוד)
@@ -1212,5 +1190,6 @@ if submitted:
             st.write(f"Buy & Hold return for period: {bh_return:.2f}%")
 
 # EOF
+
 
 
