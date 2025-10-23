@@ -1,13 +1,14 @@
-# backtester_streamlit_improved.py - הכל נקי!
-# ----------------------------------------------------
-# ודא שהקובץ לא מכיל קוד התקנה אוטומטי כמו sys, subprocess, importlib
-# ----------------------------------------------------
+# backtester_streamlit_improved.py
+# Improved Backtester for Streamlit — expanded warmup + defaults + summary additions
+# להרצה: pip install streamlit yfinance pandas numpy matplotlib
+# ואז: streamlit run backtester_streamlit_improved.py
 
+import sys
+import subprocess
+import importlib
 
+required = ["streamlit", "yfinance", "pandas", "numpy", "matplotlib"]
 
-# ----------------------------------------------------
-# ייבוא המודולים הרגיל (כעת זה אמור לעבוד)
-# ----------------------------------------------------
 import streamlit as st
 import yfinance as yf
 import pandas as pd
@@ -1190,6 +1191,3 @@ if submitted:
             st.write(f"Buy & Hold return for period: {bh_return:.2f}%")
 
 # EOF
-
-
-
