@@ -8,11 +8,7 @@ import subprocess
 import importlib
 
 required = ["streamlit", "yfinance", "pandas", "numpy", "matplotlib"]
-for pkg in required:
-    try:
-        importlib.import_module(pkg)
-    except ImportError:
-        subprocess.check_call([sys.executable, "-m", "pip", "-q", "install", pkg])
+
 
 import streamlit as st
 import yfinance as yf
@@ -1196,3 +1192,4 @@ if submitted:
             st.write(f"Buy & Hold return for period: {bh_return:.2f}%")
 
 # EOF
+
